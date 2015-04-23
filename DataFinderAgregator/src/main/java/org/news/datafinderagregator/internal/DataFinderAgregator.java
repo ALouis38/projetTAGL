@@ -1,19 +1,12 @@
-package fr.gausta.dataagregator.internal;
-
-import org.apache.felix.ipojo.annotations.Bind;
-import org.apache.felix.ipojo.annotations.Component;
-import org.apache.felix.ipojo.annotations.Instantiate;
-import org.apache.felix.ipojo.annotations.Invalidate;
-import org.apache.felix.ipojo.annotations.Requires;
-import org.apache.felix.ipojo.annotations.Unbind;
-import org.apache.felix.ipojo.annotations.Validate;
+package org.news.datafinderagregator.internal;
+import org.apache.felix.ipojo.annotations.*;
 import org.news.agreg.SearchInfoItf;
 import org.osgi.service.log.LogService;
 
 
-@Component(name = "SampleConsumerComponent")
-@Instantiate(name = "SampleConsumerComponentInstance")
-public class SampleConsumerImpl {
+@Component(name = "DataFinderAgregatorComponent")
+@Instantiate(name = "DataFinderAgregatorComponentInstance")
+public class DataFinderAgregator {
     
     @Requires(optional = false, id = "sampleInterface")
     private SearchInfoItf svc;
@@ -42,11 +35,13 @@ public class SampleConsumerImpl {
 
     @Validate
     void start() {
+        // do something
         log.log(LogService.LOG_INFO , "started");
     }
 
     @Invalidate
     void stop() {
+        // do something
         log.log(LogService.LOG_INFO , "stopped");
     }
 }

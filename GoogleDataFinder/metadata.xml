@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipojo 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="org.apache.felix.ipojo http://felix.apache.org/ipojo/schemas/CURRENT/core.xsd" 
+    xmlns="org.apache.felix.ipojo">
+  <!-- sample configuration follows
+       CAUTION: Suppose iPOJO does not support a bundle that has both provider and consumer who are using/implementing same service interface.
+                So this sample configuration is not work without editing.
+                Remove the other side of what you want.
+    -->  
+</ipojo>
