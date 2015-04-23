@@ -15,6 +15,7 @@
  */
 package fr.gausta.dataagregator.internal;
 
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
@@ -29,9 +30,9 @@ public class test {
     public static void main(String[] args) {
         DataFinderGoogleImpl testImpl = new DataFinderGoogleImpl();
         
-        HashMap<String, String> res = testImpl.findData("android");
+        HashMap<URL, String> res = (HashMap<URL, String>) testImpl.search("android");
         System.out.println("Resultat : ");
-        for(Entry<String, String> s: res.entrySet()) {
+        for(Entry<URL, String> s: res.entrySet()) {
             System.out.println(s.getKey()+"\n"+s.getValue()+"\n");
         }
     }     

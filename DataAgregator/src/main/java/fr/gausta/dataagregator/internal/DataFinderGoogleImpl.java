@@ -1,8 +1,9 @@
 package fr.gausta.dataagregator.internal;
 
-import fr.gausta.dataagregator.DataFinderIntf;
 import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.felix.ipojo.annotations.Bind;
@@ -13,22 +14,27 @@ import org.apache.felix.ipojo.annotations.Provides;
 import org.apache.felix.ipojo.annotations.Requires;
 import org.apache.felix.ipojo.annotations.Unbind;
 import org.apache.felix.ipojo.annotations.Validate;
+import org.apache.felix.ipojo.annotations.Property;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.news.agreg.SearchInfoItf;
 import org.osgi.service.log.LogService;
 
 @Component(name = "DataFinderGoogleComponent")
-@Provides(specifications = DataFinderIntf.class)
+@Provides(specifications = SearchInfoItf.class)
 @Instantiate(name = "DataFinderGoogleComponentInstance")
-public class DataFinderGoogleImpl implements DataFinderIntf {
+public class DataFinderGoogleImpl implements SearchInfoItf {
 
     @Requires(optional = false, id = "logger")
     private LogService log;
+    
+    @Property(name=SearchInfoItf.PROP_TYPE,value=SearchInfoItf.TYPE_DATAFINDER)
+    private String type;
 
-    public HashMap<String, String> findData(String query) {
-        HashMap<String, String> result;
+    public Map<URL, String> search(String query) {
+        HashMap<URL, String> result;
         String url = getUrlFromQuery(query);
         result = getLinksAndDesc(url);
         return result;
@@ -45,16 +51,16 @@ public class DataFinderGoogleImpl implements DataFinderIntf {
         return url;
     }
 
-    private HashMap<String, String> getLinksAndDesc(String urlString) {
+    private HashMap<URL, String> getLinksAndDesc(String urlString) {
         try {
-            HashMap<String, String> resultat = new HashMap<String, String>();
+            HashMap<URL, String> resultat = new HashMap<URL, String>();
             Document document = Jsoup.connect(urlString).userAgent("Mozilla").get();
             Elements answerers = document.select("li.g table tbody tr td a");
             for (Element answerer : answerers) {
                 if(!(answerer.text().equals("")) && !(answerer.text() == null)
                         && !(answerer.attr("href").equals("")) && !(answerer.attr("href") == null)) {
                     String[] resulurl = answerer.attr("href").split("http://");
-                    resultat.put(resulurl[1], answerer.text());
+                    resultat.put(new URL("http://"+resulurl[1]), answerer.text());
                 }
             }
 

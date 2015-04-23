@@ -1,6 +1,5 @@
 package fr.gausta.dataagregator.internal;
 
-import fr.gausta.dataagregator.DataFinderIntf;
 import org.apache.felix.ipojo.annotations.Bind;
 import org.apache.felix.ipojo.annotations.Component;
 import org.apache.felix.ipojo.annotations.Instantiate;
@@ -8,6 +7,7 @@ import org.apache.felix.ipojo.annotations.Invalidate;
 import org.apache.felix.ipojo.annotations.Requires;
 import org.apache.felix.ipojo.annotations.Unbind;
 import org.apache.felix.ipojo.annotations.Validate;
+import org.news.agreg.SearchInfoItf;
 import org.osgi.service.log.LogService;
 
 
@@ -16,7 +16,7 @@ import org.osgi.service.log.LogService;
 public class SampleConsumerImpl {
     
     @Requires(optional = false, id = "sampleInterface")
-    private DataFinderIntf svc;
+    private SearchInfoItf svc;
     
     @Requires(optional = false, id = "logger")
     private LogService log;
@@ -30,7 +30,7 @@ public class SampleConsumerImpl {
     }
     
     @Bind(id = "sampleInterface")
-    void setService(DataFinderIntf service) {
+    void setService(SearchInfoItf service) {
         log.log(LogService.LOG_INFO , "Got service");
         svc = service;
     }
