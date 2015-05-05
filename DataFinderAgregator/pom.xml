@@ -44,6 +44,12 @@
         </dependency>
         
         <dependency>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>org.apache.felix.gogo.command</artifactId>
+                <version>0.14.0</version>
+        </dependency>
+        
+        <dependency>
             <groupId>org.news</groupId>
             <artifactId>Agreg</artifactId>
             <version>1.0</version>

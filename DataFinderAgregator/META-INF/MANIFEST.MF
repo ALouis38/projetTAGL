@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1430812083509
+Build-Jdk: 1.8.0_31
+Built-By: anthony
+Bundle-Description: parent pom for building wiperdog artifacts.
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: DataFinderAgregator
+Bundle-SymbolicName: DataFinderAgregator
+Bundle-Version: 1.0
+Created-By: Apache Maven Bundle Plugin
+Import-Package: org.apache.felix.service.command;version="[0.10,1)";stat
+ us=provisional,org.news.agreg;version="[1.0,2)",org.osgi.service.log;ve
+ rsion="[1.3,2)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.5))"
+Tool: Bnd-2.3.0.201405100607

@@ -1,4 +1,4 @@
-package fr.gausta.dataagregator.internal;
+package fr.gausta.googledatafinder.internal;
 
 import java.io.IOException;
 import java.net.URL;
@@ -81,11 +81,13 @@ public class DataFinderGoogleImpl implements SearchInfoItf {
 
     @Validate
     public void validate() {
+        System.out.println("Google impl start");
         log.log(LogService.LOG_INFO, "SampleProviderComponent start");
     }
 
     @Invalidate
     public void invalidate() {
+        System.out.println("Google impl stop");
         log.log(LogService.LOG_INFO, "SampleProviderComponent stop");
     }
 

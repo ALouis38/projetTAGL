@@ -3,8 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <properties>
-        <bundle.symbolicName>DataAgregator</bundle.symbolicName>
-        <bundle.namespace>fr.gausta.dataagregator</bundle.namespace>
+        <bundle.symbolicName>GoogleDataFinder</bundle.symbolicName>
+        <bundle.namespace>fr.gausta.googledatafinder</bundle.namespace>
     </properties>
     <parent>
         <artifactId>wiperdog-parent</artifactId>
@@ -15,9 +15,9 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>fr.gausta</groupId>
     <artifactId>googledatafinder</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 
-    <name>GoogleDataFinder</name>
+    <name>${bundle.symbolicName}</name>
 
     <packaging>bundle</packaging>
 

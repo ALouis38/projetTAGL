@@ -1,14 +1,14 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1429634060173
+Bnd-LastModified: 1430762076585
 Build-Jdk: 1.8.0_31
 Built-By: anthony
 Bundle-ClassPath: .,jsoup-1.8.2.jar
 Bundle-Description: parent pom for building wiperdog artifacts.
 Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
 Bundle-ManifestVersion: 2
-Bundle-Name: DataAgregator
-Bundle-SymbolicName: DataAgregator
-Bundle-Version: 1.0.0.SNAPSHOT
+Bundle-Name: GoogleDataFinder
+Bundle-SymbolicName: GoogleDataFinder
+Bundle-Version: 1.0
 Created-By: Apache Maven Bundle Plugin
 Embed-Dependency: jsoup;scope=compile
 Embedded-Artifacts: jsoup-1.8.2.jar;g="org.jsoup";a="jsoup";v="1.8.2"
